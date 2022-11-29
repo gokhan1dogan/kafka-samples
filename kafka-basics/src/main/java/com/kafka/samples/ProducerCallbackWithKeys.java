@@ -21,7 +21,7 @@ public class ProducerCallbackWithKeys {
         prop.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         prop.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         // Avoid kafka producer from doing batches (default value is 16k)
-        //prop.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, Integer.toString(10));
+        prop.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, Integer.toString(10));
 
         // Create producer with properties
         KafkaProducer<String, String> producer = new KafkaProducer<>(prop);
@@ -50,7 +50,7 @@ public class ProducerCallbackWithKeys {
 
 
             try{
-                Thread.sleep(0);
+                Thread.sleep(2000);
             } catch (InterruptedException e){
                 e.printStackTrace();
             }
