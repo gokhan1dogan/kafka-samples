@@ -26,7 +26,7 @@ public class ProducerCallback {
         // Create producer with properties
         KafkaProducer<String, String> producer = new KafkaProducer<>(prop);
 
-        for (int i=0; i<5; i++) {
+        for (int i=0; i<10; i++) {
             // Create a producer record (message)
             String kafkaMessage = "Message from java : " + i;
             ProducerRecord<String, String> producerRecord = new ProducerRecord<>(topic, kafkaMessage);
@@ -47,7 +47,7 @@ public class ProducerCallback {
 
 
             try{
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (InterruptedException e){
                 e.printStackTrace();
             }

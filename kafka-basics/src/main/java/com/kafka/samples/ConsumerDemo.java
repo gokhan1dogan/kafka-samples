@@ -39,13 +39,12 @@ public class ConsumerDemo {
         log.info("Start polling...");
         while (true) {
             log.info("Fetch messages from last committed offset...");
-            ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(3000));
+            ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(10000));
             // Iterate through records and process !!
             for (ConsumerRecord<String, String> record: records){
                 log.info("Consumer Record : " + record.key() + ", " + record.value() );
             }
         }
-
 
         // Close the consumer
 
